@@ -149,6 +149,8 @@ def make_command(
         elif (isinstance(val, str)):
             if (len(val) == 0):
                 del params1_dict[key]
+            else:
+                params1_dict[key] = f'"{val}"'
 
     for key, val in list(params2_dict.items()):
         if (isinstance(val, bool)):
@@ -159,6 +161,8 @@ def make_command(
         elif (isinstance(val, str)):
             if (len(val) == 0):
                 del params2_dict[key]
+            else:
+                params2_dict[key] = f'"{val}"'
     command = [
         head,
         *[f"-{key}{connection}{val}" for key, val in params1_dict.items()],

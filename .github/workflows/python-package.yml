@@ -80,7 +80,7 @@ jobs:
 
       - name: Configure Poetry for PyPI
         run: |
-          poetry source add coredumped --priority supplemental https://pypi.coredumped.tech
+          poetry source add coredumped --priority supplemental ${{ secrets.PYPI_SERVER_ADDRESS }}
           poetry config http-basic.coredumped ${{ secrets.PYPI_COREDUMPED_USER }} ${{ secrets.PYPI_COREDUMPED_PASSWORD }}
           poetry install
 
