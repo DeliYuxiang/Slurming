@@ -57,6 +57,7 @@ def make_shell_script(
     sbatch_args: Dict = {},
     jobname: str = "",
     interactive: bool = False,
+    bashinit: List[str] = [],
 ):
     """_summary_
 
@@ -105,8 +106,9 @@ def make_shell_script(
         *[
             f"#SBATCH --{key}={val}"
             if not isinstance(val, bool) else f"#SBATCH --{key}"
-            for key, val in sbatch_args.items()
+            for key, val in sbatch_args.items() if len(str(val)) > 0
         ],
+        *bashinit,
         # *["whoami", f"echo $SHELL", "w", "tty", "ps"],
         # *init_bashrc,
         *env_var_decls,
@@ -174,13 +176,14 @@ def make_command(
 
 
 def make_if_statement(
-    if_st: Tuple[(str, List[str])],
+    if_st: Tuple[(List[str], List[str])],
     elif_sts: List[Tuple[(str, List[str])]] = [],
     else_st: List[str] = [],
 ):
 
     if_cond, if_act = if_st
-    terms = [f"if [ {if_cond} ]; then", *if_act]
+    if_cond_str = " && ".join([f"[ {c} ]" for c in if_cond])
+    terms = [f"if {if_cond_str}; then", *if_act]
 
     for cond, act in elif_sts:
         terms.extend([f"elif [ {cond} ]; then", *act])

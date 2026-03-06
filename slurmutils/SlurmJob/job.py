@@ -36,6 +36,7 @@ class SlurmJob:
     job_name: Union[str, None]
 
     interactive: bool
+    bashinit: List[str]
 
     working_dir: Union[Path, None]
 
@@ -69,6 +70,7 @@ class SlurmJob:
         partition: str = "",
         interactive: bool = False,
         working_dir: Union[Path, None] = None,
+        bashinit: List[str] = [],
     ):
         self.job_name = job_name
         self.partition = partition
@@ -96,6 +98,8 @@ class SlurmJob:
         self.env_vars = env_vars
         self.sbatch_args = sbatch_args
         self.output_storage = output_storage
+
+        self.bashinit = bashinit
 
     def prepend(self, content: List[str]):
         """Append content to the job script."""
@@ -155,4 +159,5 @@ class SlurmJob:
             module_profie=self.module_profile,
             env_vars=self.env_vars,
             sbatch_args=self.sbatch_args,
+            bashinit=self.bashinit,
         )
