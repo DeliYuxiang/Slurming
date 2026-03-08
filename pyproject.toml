@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "slurmutils"
+name = "slurming"
 version = "0.2.3"
 description = ""
-authors = ["Yuxiang Luo <luo.929@osu.edu>"]
-license = "GPL2"
+authors = ["Yuxiang Luo <yuxiang.lll@outlook.com>"]
+license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -17,11 +17,6 @@ pandas =[
 build = "^1.2.1"
 yapf = "^0.40.2"
 
-
-[[tool.poetry.source]]
-name = "coredumped"
-url = "https://pypi.coredumped.tech"
-priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]

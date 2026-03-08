@@ -1,6 +1,6 @@
 from typing import Dict, List, Union, Tuple
 from pathlib import Path
-from slurmutils.Slurm.shellUtils import make_shell_script
+from slurming.Slurm.shellUtils import make_shell_script
 
 
 class SlurmJob:

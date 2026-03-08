@@ -1,13 +1,4 @@
-#############################################################
-# @Time        :   2022/11/29 05:11:38
-# @FileName    :   metaJob.py
-# @FileDir     :   ~/project/SlurmUtils
-# @Author      :   Yuxiang Luo
-# @Email       :   luo.929@osu.edu
-# @Software    :   VSCode
-# @Organization:   Center of Weldability, The Ohio State University
-# @Usage       :   #TODO: Add Usage
-#############################################################
+
 
 import json
 from typing import Dict, List, Union

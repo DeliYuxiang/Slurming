@@ -1,13 +1,4 @@
-#############################################################
-# @Time        :   2022/11/29 05:12:03
-# @FileName    :   shutils.py
-# @FileDir     :   ~/project/SlurmUtils
-# @Author      :   Yuxiang Luo
-# @Email       :   luo.929@osu.edu
-# @Software    :   VSCode
-# @Organization:   Center of Weldability, The Ohio State University
-# @Usage       :   #TODO: Add Usage
-#############################################################
+
 
 import json
 from pathlib import Path
